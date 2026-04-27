@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { RootLayout } from "./components/RootLayout";
 import { Home } from "./components/Home";
 import { Nosotros } from "./components/Nosotros";
-import { Servicios } from "./components/Servicios";
+import Servicios from "./components/Servicios";
 import { Sectores } from "./components/Sectores";
 import { Contacto } from "./components/Contacto";
 
