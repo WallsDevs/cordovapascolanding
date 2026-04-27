@@ -35,7 +35,7 @@ const teamMembers = [
   {
     name: 'Omar E. Córdova Paredes',
     role: 'Socio Director',
-    image: '/src/assets/Omar.jpeg',
+    image: '/assets/Omar.jpeg',
     experience: '12+ años de experiencia',
     education: [
       'Maestría en Relaciones Industriales',
@@ -51,7 +51,7 @@ const teamMembers = [
   {
     name: 'Jorge Pasco',
     role: 'Socio',
-    image: '/src/assets/Jorge Pasco.jpeg',
+    image: '/assets/Jorge Pasco.jpeg',
     experience: '10+ años de experiencia',
     education: [
       'Abogado por la Pontificia Universidad Católica del Perú',
@@ -67,7 +67,7 @@ const teamMembers = [
   {
     name: 'Alejandro Castillo',
     role: 'Socio',
-    image: '/src/assets/Alejandro Castillo.jpeg',
+    image: '/assets/Alejandro Castillo.jpeg',
     experience: '8+ años de experiencia en Arbitraje',
     education: [
       'Abogado por la Universidad Nacional Mayor de San Marcos',

@@ -187,7 +187,7 @@ export function Home() {
               className="mb-4 flex justify-center"
             >
               <img
-                src="/src/assets/logo.png"
+                src="/assets/logo.png"
                 alt="Córdova & Pasco Logo"
                 className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28"
               />
