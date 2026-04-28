@@ -240,7 +240,7 @@ export function Sectores() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#1A1B29]">
+      <section className="py-20 bg-[#1A1B29] border-b border-gray-700">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -10,8 +10,9 @@
   --pure-white: #FFFFFF;
 
   /* Typography */
-  --font-display: 'Playfair Display', serif;
-  --font-sans: 'Montserrat', sans-serif;
+  --font-display: 'Avenir', sans-serif;
+  --font-sans: 'Avenir', sans-serif;
+  --font-secondary: 'Kanit', sans-serif;
 
   --background: var(--pure-white);
   --foreground: var(--midnight-blue);

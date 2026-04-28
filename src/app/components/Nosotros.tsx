@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Award, Building2, Users, Target, GraduationCap, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Building2, Users, Target, GraduationCap, Briefcase, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 
 const AnimatedCounter = ({ value, duration = 2000 }: { value: string; duration?: number }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -295,7 +295,7 @@ export function Nosotros() {
             </button>
 
             {/* Indicadores */}
-            <div className="flex justify-center items-center gap-3 mt-8">
+            <div className="flex justify-center items-center gap-3 mt-8 hidden">
               {teamMembers.map((member, index) => (
                 <button
                   key={index}
@@ -364,8 +364,8 @@ export function Nosotros() {
         </div>
       </section>
 
-      {/* Differentiators */}
-      <section className="py-20 lg:py-24 bg-[#F8F9FA] border-t border-gray-200">
+      {/* Our Identity - Consolidated Section */}
+      <section className="py-20 lg:py-24 bg-[#1A1B29] text-white border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -374,35 +374,37 @@ export function Nosotros() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
-              Nuestros Diferenciadores
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
+              Nuestra Identidad
             </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
-              Los valores que nos distinguen y definen nuestro compromiso con la excelencia.
+            <p className="font-sans text-lg text-gray-300 max-w-3xl mx-auto font-normal">
+              Valores, logros y diferenciadores que nos definen como estudio boutique de excelencia.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Core Values & Differentiators */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
                 icon: Award,
                 title: 'Excelencia Técnica',
-                description: 'Compromiso inquebrantable con el rigor académico y la actualización permanente en tendencias jurídicas y normativas.',
+                description: 'Rigor académico y actualización permanente en tendencias jurídicas.',
               },
               {
                 icon: Target,
                 title: 'Enfoque Estratégico',
-                description: 'Cada caso es abordado con visión de negocio, analizando aspectos legales, organizacionales y financieros.',
+                description: 'Visión de negocio integrando aspectos legales y financieros.',
               },
               {
                 icon: Users,
                 title: 'Atención Personalizada',
-                description: 'Nuestros socios participan directamente en cada asunto, asegurando un servicio boutique de primer nivel.',
+                description: 'Socios participan directamente en cada asunto.',
               },
               {
                 icon: Building2,
-                title: 'Integridad Institucional',
-                description: 'Ética profesional y transparencia como pilares fundamentales de nuestra relación con clientes.',
+                title: 'Integridad Absoluta',
+                description: 'Ética profesional y transparencia como pilares.',
               },
             ].map((item, index) => (
               <motion.div
@@ -411,78 +413,35 @@ export function Nosotros() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-gray-50 border border-gray-200 p-8 text-center hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 text-center hover:bg-white/20 hover:border-white/40 transition-all"
               >
-                <div className="w-16 h-16 bg-[#B32017] mx-auto mb-6 flex items-center justify-center">
-                  <item.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mx-auto mb-6">
+                  <item.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
                 </div>
 
-                <h3 className="font-sans text-xl font-semibold text-[#1A1B29] mb-4">
+                <h3 className="font-sans text-lg font-semibold text-white mb-4">
                   {item.title}
                 </h3>
 
-                <p className="font-sans text-[#2D2D3D] leading-relaxed font-normal">
+                <p className="font-sans text-sm text-gray-300 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Metrics */}
-      <section className="py-20 bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
-              Nuestros Logros
-            </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
-              Números que reflejan nuestro compromiso y trayectoria.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
-            {[
-              { value: '+25', label: 'Años de experiencia combinada' },
-              { value: '+100', label: 'Casos gestionados en diversas materias' },
-              { value: '100%', label: 'Compromiso con resultados' },
-            ].map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-gray-50 border border-gray-200 p-8 text-center hover:shadow-lg hover:border-[#B32017]/20 transition-all"
-              >
-                <div className="font-display text-5xl font-bold text-[#B32017] mb-3">
-                  <AnimatedCounter value={metric.value} />
-                </div>
-                <p className="font-sans text-sm text-[#1A1B29] uppercase tracking-wide font-medium">
-                  {metric.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* Strategic Alliance */}
-      <section className="py-20 lg:py-24 bg-[#F8F9FA] border-t border-gray-200">
+      <section className="py-20 lg:py-24 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white p-10 lg:p-12 border-l-4 border-[#B32017]"
+            className="bg-white p-10 lg:p-12 border-l-4 border-[#B32017] shadow-lg"
           >
             <div className="flex items-center gap-3 mb-6">
               <Building2 className="w-8 h-8 text-[#B32017]" />
@@ -513,50 +472,6 @@ export function Nosotros() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 lg:py-24 bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
-              Nuestros Valores
-            </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
-              Principios que guían cada decisión y cada relación que construimos.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-gray-50 border border-gray-200 p-8 text-center hover:shadow-lg hover:border-[#B32017]/20 transition-all"
-              >
-                <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
-                </div>
-
-                <h3 className="font-sans text-lg font-semibold text-[#1A1B29] mb-4">
-                  {value.title}
-                </h3>
-
-                <p className="font-sans text-sm text-[#2D2D3D] leading-relaxed font-normal">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
   );
 }

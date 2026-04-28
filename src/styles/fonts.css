@@ -1,1 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Fuentes locales */
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/avenir-light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Kanit-Regular.ttf') format('truetype');
+  font-display: swap;
+}

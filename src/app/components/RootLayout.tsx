@@ -18,8 +18,10 @@ export function RootLayout() {
   const navLinks = [
     { path: '/', label: 'Inicio' },
     { path: '/nosotros', label: 'Nosotros' },
+    { path: '/abogados', label: 'Abogados' },
     { path: '/servicios', label: 'Servicios' },
     { path: '/sectores', label: 'Sectores' },
+    { path: '/blog', label: 'Blog' },
     { path: '/contacto', label: 'Contacto' },
   ];
 

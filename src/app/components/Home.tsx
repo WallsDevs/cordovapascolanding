@@ -1,8 +1,52 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
-import { Scale, FileText, Users, Gavel, Shield, Briefcase, ArrowRight } from 'lucide-react';
+import { Scale, FileText, Users, Gavel, Shield, Briefcase, ArrowRight, Search, Filter } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState, useEffect } from 'react';
+
+// Importar datos de abogados desde el componente Abogados
+const teamMembers = [
+  {
+    id: 1,
+    name: 'Omar E. Córdova Paredes',
+    role: 'Socio Director',
+    image: '/assets/Omar.jpeg',
+    experience: '12+ años de experiencia',
+    practiceAreas: ['Derecho Administrativo', 'Energía', 'Control Gubernamental'],
+  },
+  {
+    id: 2,
+    name: 'Jorge Pasco',
+    role: 'Socio',
+    image: '/assets/Jorge Pasco.jpeg',
+    experience: '10+ años de experiencia',
+    practiceAreas: ['Derecho Administrativo', 'Defensa de Funcionarios', 'Gestión Contractual'],
+  },
+  {
+    id: 3,
+    name: 'Alejandro Castillo',
+    role: 'Socio',
+    image: '/assets/Alejandro Castillo.jpeg',
+    experience: '8+ años de experiencia en Arbitraje',
+    practiceAreas: ['Arbitraje', 'Contratos', 'Resolución de Controversias'],
+  },
+  {
+    id: 4,
+    name: 'Diego Larico',
+    role: 'Asociado Senior',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
+    experience: '7+ años de experiencia en Derecho Corporativo',
+    practiceAreas: ['Derecho Corporativo', 'M&A', 'Due Diligence'],
+  },
+  {
+    id: 5,
+    name: 'Mayra Ormea',
+    role: 'Asociada Senior',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600',
+    experience: '10+ años de experiencia en Derecho Laboral',
+    practiceAreas: ['Derecho Laboral', 'Relaciones Laborales', 'Compliance Laboral'],
+  },
+];
 
 // Componente para conteo animado
 function AnimatedCounter({ value, duration = 2000 }: { value: string; duration?: number }) {
@@ -221,7 +265,7 @@ export function Home() {
               className="mb-3 px-4"
             >
               <div className="inline-block max-w-full">
-                <p className="font-sans text-base sm:text-lg md:text-xl lg:text-2xl text-[#B32017] font-semibold mb-1.5">
+                <p className="font-kanit text-base sm:text-lg md:text-xl lg:text-2xl text-[#B32017] font-semibold mb-1.5">
                   Legal Partners
                 </p>
                 <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#B32017] to-transparent" />
@@ -415,34 +459,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* Metrics Section */}
-      <section className="py-16 bg-white border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { value: '+25', label: 'Años de experiencia combinada' },
-              { value: '+100', label: 'Casos gestionados en diversas materias' },
-              { value: '100%', label: 'Compromiso con resultados' },
-            ].map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="text-center"
-              >
-                <div className="font-display text-5xl lg:text-6xl font-bold text-[#B32017] mb-3">
-                  <AnimatedCounter value={metric.value} duration={2000} />
-                </div>
-                <p className="font-sans text-sm text-[#6B6B7B] uppercase tracking-wide font-medium">
-                  {metric.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Separador */}
+      <div className="border-y border-gray-200"></div>
 
       {/* Why Choose Us */}
       <section className="py-20 lg:py-24 bg-[#F4F4F4]">
@@ -484,6 +502,356 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* Separador */}
+      <div className="border-y border-gray-200"></div>
+
+      {/* Blog Preview Section */}
+      <section className="py-20 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
+              Blog Legal
+            </h2>
+            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
+              Análisis jurídico y perspectivas sobre las últimas tendencias regulatorias en el sector legal peruano.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                title: 'Nuevas regulaciones en el sector energético peruano',
+                excerpt: 'Análisis de las últimas disposiciones regulatorias que impactan el desarrollo de proyectos de energía renovable.',
+                author: 'Dr. Carlos Córdova',
+                date: '15 de abril, 2026',
+                readTime: '5 min',
+                category: 'Energía',
+                image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600'
+              },
+              {
+                title: 'Compliance laboral: Guía para empresas',
+                excerpt: 'Best practices y consideraciones legales para mantener el cumplimiento normativo en relaciones laborales.',
+                author: 'Dra. María Pasco',
+                date: '10 de abril, 2026',
+                readTime: '7 min',
+                category: 'Laboral',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600'
+              },
+              {
+                title: 'Arbitrajes comerciales: Tendencias recientes',
+                excerpt: 'Evolución jurisprudencial en materia de arbitraje comercial y su aplicación en contratos complejos.',
+                author: 'Dr. Luis Mendez',
+                date: '5 de abril, 2026',
+                readTime: '6 min',
+                category: 'Arbitraje',
+                image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600'
+              }
+            ].map((post, index) => (
+              <motion.article
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+              >
+                {/* Image */}
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Category */}
+                  <span className="inline-block px-3 py-1 bg-[#B32017]/10 text-[#B32017] font-sans text-xs font-semibold rounded-full mb-3">
+                    {post.category}
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="font-display text-xl font-bold text-[#1A1B29] mb-3 leading-tight">
+                    {post.title}
+                  </h3>
+
+                  {/* Excerpt */}
+                  <p className="font-sans text-[#2D2D3D] leading-relaxed mb-4 font-normal text-sm">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Meta */}
+                  <div className="flex items-center justify-between text-xs text-gray-600 mb-4">
+                    <div className="flex items-center gap-3">
+                      <span>{post.author}</span>
+                      <span>{post.date}</span>
+                    </div>
+                    <span>{post.readTime}</span>
+                  </div>
+
+                  {/* Read More Link */}
+                  <Link
+                    to="/blog"
+                    className="inline-flex items-center gap-2 text-[#B32017] font-sans font-semibold text-sm hover:gap-4 transition-all"
+                  >
+                    Leer más
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-center"
+          >
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-[#1A1B29] text-white font-sans font-semibold hover:bg-[#B32017] transition-colors"
+            >
+              Ver todos los artículos
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Separador */}
+      <div className="border-y border-gray-200"></div>
+
+      {/* Abogados Search Section */}
+      <section className="py-20 lg:py-24 bg-[#F8F9FA]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
+              Nuestro Equipo de Abogados
+            </h2>
+            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
+              Encuentre al profesional ideal para sus necesidades legales. Nuestro equipo combina 
+              experiencia técnica con visión estratégica para ofrecer soluciones de excelencia.
+            </p>
+          </motion.div>
+
+          {/* Search Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200 mb-16"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <Filter className="w-6 h-6 text-[#B32017]" />
+              <h2 className="font-display text-2xl font-bold text-[#1A1B29]">
+                Buscar Abogados
+              </h2>
+            </div>
+
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                const searchTerm = e.target.search.value;
+                // Redirigir a la página de abogados con el término de búsqueda
+                window.location.href = `/abogados?search=${encodeURIComponent(searchTerm)}`;
+              }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                {/* Search Input */}
+                <div className="lg:col-span-1">
+                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                    Abogados
+                  </label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="search"
+                      placeholder="Nombre o cargo..."
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                    />
+                  </div>
+                </div>
+
+                {/* Practice Areas */}
+                <div>
+                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                    Áreas de Práctica
+                  </label>
+                  <select
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  >
+                    <option>Todas</option>
+                    <option>Derecho Administrativo</option>
+                    <option>Arbitraje</option>
+                    <option>Contratos</option>
+                    <option>Derecho Corporativo</option>
+                    <option>Derecho Laboral</option>
+                    <option>Energía</option>
+                    <option>Control Gubernamental</option>
+                    <option>Defensa de Funcionarios</option>
+                    <option>Gestión Contractual</option>
+                    <option>Resolución de Controversias</option>
+                    <option>M&A</option>
+                    <option>Due Diligence</option>
+                    <option>Relaciones Laborales</option>
+                    <option>Compliance Laboral</option>
+                  </select>
+                </div>
+
+                {/* Industries */}
+                <div>
+                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                    Industrias
+                  </label>
+                  <select
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  >
+                    <option>Todas</option>
+                    <option>Energía</option>
+                    <option>Oil & Gas</option>
+                    <option>Sector Público</option>
+                    <option>Infraestructura</option>
+                    <option>APPs</option>
+                    <option>Construcción</option>
+                    <option>Financiero</option>
+                    <option>Corporativo</option>
+                    <option>Startups</option>
+                    <option>Retail</option>
+                    <option>Manufactura</option>
+                    <option>Servicios</option>
+                  </select>
+                </div>
+
+                {/* Category */}
+                <div>
+                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                    Categoría
+                  </label>
+                  <select
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  >
+                    <option>Todos</option>
+                    <option>Socios</option>
+                    <option>Asociados</option>
+                    <option>Asociadas</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mt-6 flex justify-between items-center">
+                <p className="font-sans text-sm text-gray-600">
+                  Presione Buscar para ver resultados
+                </p>
+                <button
+                  type="submit"
+                  className="font-sans text-sm text-[#B32017] hover:text-[#8B1810] transition-colors"
+                >
+                  Limpiar filtros
+                </button>
+              </div>
+            </form>
+          </motion.div>
+
+          {/* Featured Lawyers Preview */}
+          <div className="text-center mb-8">
+            <h3 className="font-display text-2xl font-bold text-[#1A1B29] mb-2">
+              Abogados Destacados
+            </h3>
+            <p className="font-sans text-gray-600">
+              Conozca a nuestros socios directores
+            </p>
+          </div>
+
+          {/* Small Lawyer Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {teamMembers.slice(0, 3).map((lawyer, index) => (
+              <motion.div
+                key={lawyer.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+              >
+                <div className="flex items-start p-4">
+                  {/* Small Image */}
+                  <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 mr-4">
+                    <ImageWithFallback
+                      src={lawyer.image}
+                      alt={lawyer.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 text-left">
+                    <div className="mb-2">
+                      <span className="inline-block px-2 py-1 bg-[#B32017] text-white font-sans text-xs font-semibold rounded-full">
+                        {lawyer.role}
+                      </span>
+                    </div>
+                    <h4 className="font-display text-lg font-bold text-[#1A1B29] mb-1">
+                      {lawyer.name}
+                    </h4>
+                    <p className="font-sans text-xs text-gray-600 mb-2">
+                      {lawyer.experience}
+                    </p>
+                    {/* Practice Areas */}
+                    <div className="flex flex-wrap gap-1">
+                      {lawyer.practiceAreas.slice(0, 2).map((area, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-[#B32017]/10 text-[#B32017] font-sans text-xs rounded"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* View All Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center"
+          >
+            <Link
+              to="/abogados"
+              className="inline-flex items-center justify-center gap-2 px-12 py-4 bg-white border-2 border-[#B32017] text-[#B32017] font-sans font-semibold hover:bg-[#B32017] hover:text-white transition-colors"
+            >
+              Ver Todos los Abogados
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Separador */}
+      <div className="border-y border-gray-200"></div>
 
       {/* CTA Section */}
       <section className="py-20 lg:py-24 bg-[#1A1B29] border-b border-gray-700">
