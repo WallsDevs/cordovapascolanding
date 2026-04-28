@@ -12,8 +12,17 @@ export function RootLayout() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+    
+    // Scroll hacia arriba cuando cambia la ruta
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  // Función para manejar clic en navegación y hacer scroll hacia arriba
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const navLinks = [
     { path: '/', label: 'Inicio' },
@@ -38,7 +47,7 @@ export function RootLayout() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" onClick={handleNavClick} className="flex items-center gap-3 group">
               <div className="w-10 h-10 bg-[#1A1B29] flex items-center justify-center transition-colors group-hover:bg-[#B32017]">
                 <Scale className="w-5 h-5 text-white" strokeWidth={1.5} />
               </div>
@@ -58,6 +67,7 @@ export function RootLayout() {
                 <Link
                   key={link.path}
                   to={link.path}
+                  onClick={handleNavClick}
                   className={`font-sans text-sm font-medium tracking-wide transition-colors relative group ${
                     location.pathname === link.path
                       ? 'text-[#B32017]'
@@ -138,7 +148,7 @@ export function RootLayout() {
               <ul className="space-y-2 font-sans text-sm text-gray-300 font-light">
                 {navLinks.map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="hover:text-[#B32017] transition-colors">
+                    <Link to={link.path} onClick={handleNavClick} className="hover:text-[#B32017] transition-colors">
                       {link.label}
                     </Link>
                   </li>

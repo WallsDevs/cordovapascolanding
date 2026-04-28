@@ -352,38 +352,69 @@ export function Home() {
 
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-6">
+              <motion.h2 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-6"
+              >
                 Acerca del Estudio
-              </h2>
+              </motion.h2>
 
-              <p className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-6 font-normal">
+              <motion.p
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-6 font-normal"
+              >
                 Somos un estudio boutique de abogados con sede en Lima, Perú, especializado en brindar
                 asesoría jurídica de alta complejidad en diversas materias legales.
-              </p>
+              </motion.p>
 
-              <p className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-6 font-normal">
+              <motion.p
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-6 font-normal"
+              >
                 Nuestro enfoque combina la rigurosidad técnica de los grandes estudios jurídicos con la
                 cercanía, agilidad y compromiso personalizado que solo un estudio boutique puede ofrecer.
-              </p>
+              </motion.p>
 
-              <p className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-8 font-normal">
+              <motion.p
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-8 font-normal"
+              >
                 Operamos como <span className="font-semibold text-[#1A1B29]">canal estratégico de los servicios
                 legales de Consultus Group</span>, combinando la profundidad analítica de una firma de
                 consultoría de primer nivel con la solidez jurídica de un estudio legal especializado.
-              </p>
+              </motion.p>
 
-              <Link
-                to="/nosotros"
-                className="inline-flex items-center gap-2 text-[#B32017] font-sans font-semibold hover:gap-4 transition-all"
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
               >
-                Conocer más sobre nosotros
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+                <Link
+                  to="/nosotros"
+                  className="inline-flex items-center gap-2 text-[#B32017] font-sans font-semibold hover:gap-4 transition-all"
+                >
+                  Conocer más sobre nosotros
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -393,29 +424,41 @@ export function Home() {
       <section className="py-20 lg:py-24 bg-[#F4F4F4]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4"
+            >
               Nuestros Servicios
-            </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal"
+            >
               Portafolio integral de seis prácticas legales especializadas, articuladas bajo una
               gobernanza estratégica única.
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 3 === 0 ? -100 : index % 3 === 1 ? 0 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-gray-50 border border-gray-200 p-8 hover:shadow-lg hover:border-[#B32017]/20 transition-all"
               >
                 <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mb-6">
@@ -466,28 +509,40 @@ export function Home() {
       <section className="py-20 lg:py-24 bg-[#F4F4F4]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4"
+            >
               ¿Por Qué Elegirnos?
-            </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal"
+            >
               Diferenciadores que nos posicionan como la mejor opción para asesoría jurídica especializada.
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {differentiators.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 3 === 0 ? -100 : index % 3 === 1 ? 100 : 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-gray-50 border border-gray-200 p-8 hover:shadow-lg hover:border-[#B32017]/20 transition-all"
               >
                 <div className="w-12 h-1 bg-[#B32017] mb-6" />
@@ -635,27 +690,38 @@ export function Home() {
       <section className="py-20 lg:py-24 bg-[#F8F9FA]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
-              Nuestro Equipo de Abogados
-            </h2>
-            <p className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal">
-              Encuentre al profesional ideal para sus necesidades legales. Nuestro equipo combina 
-              experiencia técnica con visión estratégica para ofrecer soluciones de excelencia.
-            </p>
+            <motion.h2 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4"
+            >
+              Nuestro Equipo
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal"
+            >
+              Encuentra al especialista ideal para tus necesidades legales específicas.
+            </motion.p>
           </motion.div>
 
           {/* Search Form */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200 mb-16"
           >
             <div className="flex items-center gap-3 mb-8">
