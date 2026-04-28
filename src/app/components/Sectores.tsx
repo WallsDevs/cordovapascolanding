@@ -124,66 +124,165 @@ export function Sectores() {
         </div>
       </section>
 
-      {/* Sectors Grid */}
-      <section className="py-20 bg-[#F4F4F4]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="space-y-16">
+      {/* Sectors Grid - Crossover Design */}
+      <section className="py-20 bg-gradient-to-br from-[#F8F9FA] to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#B32017]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1A1B29]/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="space-y-32 lg:space-y-48">
             {sectors.map((sector, index) => (
-              <motion.div
-                key={sector.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
-              >
-                {/* Image */}
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <ImageWithFallback
-                      src={sector.image}
-                      alt={sector.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
+              <div key={sector.title} className="relative">
+                {/* Crossover Container */}
+                <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-center min-h-[600px] ${
+                  index % 2 === 0 ? 'lg:grid-flow-col' : 'lg:grid-flow-col-dense'
+                }`}>
+                  
+                  {/* Image Section - Overlapping */}
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.2, type: "spring" }}
+                    className={`relative z-20 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                  >
+                    <div className="relative">
+                      {/* Main Image */}
+                      <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl">
+                        <ImageWithFallback
+                          src={sector.image}
+                          alt={sector.title}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                      
+                      {/* Floating Badge */}
+                      <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.4, duration: 0.6, type: "spring" }}
+                        className="absolute -top-4 -right-4 bg-white shadow-2xl rounded-2xl p-4 border-2 border-[#B32017]/20 backdrop-blur-sm"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-gradient-to-br from-[#B32017] to-[#8B1810] rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/50">
+                            <sector.icon className="w-6 h-6 text-white" strokeWidth={2.5} />
+                          </div>
+                          <div className="pr-2">
+                            <p className="font-sans text-xs font-bold text-[#1A1B29] uppercase tracking-wider drop-shadow-sm">
+                              {sector.subtitle}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                      
+                      {/* Decorative Elements */}
+                      <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-[#B32017]/10 rounded-2xl transform rotate-12"></div>
+                      <div className="absolute -top-6 -left-6 w-16 h-16 bg-[#1A1B29]/10 rounded-xl transform -rotate-12"></div>
+                    </div>
+                  </motion.div>
 
-                {/* Content */}
-                <div className={`bg-gray-50 border border-gray-200 p-8 lg:p-10 hover:shadow-lg hover:border-[#B32017]/20 transition-all ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mb-6">
-                    <sector.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
-                  </div>
+                  {/* Content Section - Overlapping */}
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? 200 : -200 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.3, type: "spring" }}
+                    className={`relative z-30 ${index % 2 === 0 ? 'lg:left-1/2 lg:-translate-x-8' : 'lg:right-1/2 lg:translate-x-8'} lg:absolute lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-auto lg:max-w-lg`}
+                  >
+                    <div className="bg-white/95 rounded-3xl shadow-2xl p-8 lg:p-12 border-2 border-[#B32017]/10 hover:shadow-3xl hover:border-[#B32017]/30 transition-all duration-500 backdrop-blur-sm relative overflow-hidden">
+                      {/* Background Accent */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B32017]/5 to-transparent rounded-bl-3xl"></div>
+                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#1A1B29]/5 to-transparent rounded-tr-3xl"></div>
+                      
+                      {/* Content Header */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.5, duration: 0.6 }}
+                        className="relative z-10"
+                      >
+                        <h3 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-3 drop-shadow-sm">
+                          {sector.title}
+                        </h3>
+                        <div className="w-20 h-1.5 bg-gradient-to-r from-[#B32017] via-[#B32017]/70 to-[#B32017]/30 rounded-full mb-6 shadow-sm"></div>
+                      </motion.div>
 
-                  <h3 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-2">
-                    {sector.title}
-                  </h3>
+                      {/* Description */}
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.6, duration: 0.6 }}
+                        className="font-sans text-lg text-[#2D2D3D] leading-relaxed mb-8"
+                      >
+                        {sector.description}
+                      </motion.p>
 
-                  <p className="font-sans text-sm text-[#B32017] font-semibold uppercase tracking-wider mb-4">
-                    {sector.subtitle}
-                  </p>
+                      {/* Services */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.7, duration: 0.6 }}
+                      >
+                        <h4 className="font-sans text-sm font-bold text-[#1A1B29] mb-4 uppercase tracking-wider">
+                          Servicios Especializados:
+                        </h4>
+                        <div className="grid grid-cols-1 gap-3">
+                          {sector.services.slice(0, 4).map((service, idx) => (
+                            <motion.div
+                              key={idx}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.8 + idx * 0.1, duration: 0.4 }}
+                              className="flex items-start gap-3"
+                            >
+                              <div className="w-2 h-2 bg-[#B32017] rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="font-sans text-[#2D2D3D]">{service}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
 
-                  <p className="font-sans text-lg text-[#2D2D3D] leading-relaxed font-normal mb-8">
-                    {sector.description}
-                  </p>
-
-                  <div>
-                    <h4 className="font-sans text-sm font-bold text-[#1A1B29] mb-4 uppercase tracking-wide">
-                      Servicios Especializados:
-                    </h4>
-                    <ul className="space-y-3">
-                      {sector.services.map((service, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start gap-3 font-sans text-[#2D2D3D] font-normal"
+                      {/* CTA Button */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.9, duration: 0.6 }}
+                        className="mt-8"
+                      >
+                        <Link
+                          to={`/sectores#${sector.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                          className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B32017] to-[#8B1810] text-white font-sans font-semibold hover:from-[#8B1810] hover:to-[#B32017] transition-all transform hover:scale-105 rounded-2xl shadow-lg hover:shadow-xl"
                         >
-                          <span className="inline-block w-1.5 h-1.5 bg-[#B32017] mt-2 flex-shrink-0" />
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                          Explorar Sector
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+                      </motion.div>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
+
+                {/* Connecting Line */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.5, duration: 0.8 }}
+                  className={`absolute top-1/2 transform -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#B32017]/20 to-transparent ${
+                    index % 2 === 0 ? 'left-0' : 'right-0'
+                  }`}
+                />
+              </div>
             ))}
           </div>
         </div>
