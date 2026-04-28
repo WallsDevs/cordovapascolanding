@@ -190,9 +190,9 @@ export default function Servicios() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
               Nuestros Servicios
@@ -213,10 +213,10 @@ export default function Servicios() {
             {services.map((service, index) => (
               <motion.div
                 key={service.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-white border border-gray-200 rounded-2xl overflow-hidden"
               >
                 <button
@@ -508,10 +508,10 @@ export default function Servicios() {
       <section className="py-24 bg-[#1A1B29] border-b border-gray-700">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Necesita Asesoría en Alguna de Estas Áreas?

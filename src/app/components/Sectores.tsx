@@ -214,10 +214,10 @@ export function Sectores() {
 
                       {/* Description */}
                       <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: index * 0.6, duration: 0.6 }}
+                        transition={{ delay: index * 0.6, duration: 0.8 }}
                         className="font-sans text-base md:text-lg text-[#2D2D3D] leading-relaxed mb-8"
                       >
                         {sector.description}
@@ -252,11 +252,11 @@ export function Sectores() {
 
                       {/* CTA Button */}
                       <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: index * 0.9, duration: 0.6 }}
-                        className="mt-8"
+                        transition={{ delay: index * 0.7, duration: 0.8 }}
+                        className="mb-8"
                       >
                         <Link
                           to={`/sectores#${sector.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
@@ -292,10 +292,10 @@ export function Sectores() {
       <section className="py-20 lg:py-24 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
@@ -323,11 +323,11 @@ export function Sectores() {
             ].map((advantage, index) => (
               <motion.div
                 key={advantage.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-gray-50 border border-gray-200 p-8 text-center hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+                transition={{ delay: index * 0.15, duration: 0.8 }}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-8 hover:shadow-lg hover:border-[#B32017]/20 transition-all"
               >
                 <div className="w-12 h-12 bg-[#B32017] mx-auto mb-6 flex items-center justify-center">
                   <span className="font-display text-2xl font-bold text-white">
@@ -352,10 +352,10 @@ export function Sectores() {
       <section className="py-20 bg-[#1A1B29] border-b border-gray-700">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Su Proyecto Requiere Expertise Técnico-Legal?

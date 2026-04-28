@@ -85,9 +85,9 @@ export default function Blog() {
       <section className="py-20 lg:py-24 bg-gradient-to-br from-[#1A1B29] to-[#2D2D3D]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-4xl lg:text-6xl font-bold text-white mb-6">
               Blog Legal
@@ -104,10 +104,10 @@ export default function Blog() {
         <section className="py-16 bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="text-center mb-8">
                 <span className="inline-block px-4 py-2 bg-[#B32017] text-white font-sans text-sm font-semibold rounded-full mb-4">
@@ -166,10 +166,10 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Category Filter */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-3 mb-16"
           >
             {categories.map((category) => (
@@ -191,10 +191,10 @@ export default function Blog() {
             {regularPosts.map((post, index) => (
               <motion.article
                 key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 3 === 0 ? -100 : index % 3 === 1 ? 100 : 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
               >
                 {/* Image */}
@@ -249,10 +249,10 @@ export default function Blog() {
 
           {/* Load More Button */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             className="text-center mt-12"
           >
             <button className="inline-flex items-center gap-2 px-10 py-4 bg-[#1A1B29] text-white font-sans font-semibold hover:bg-[#B32017] transition-colors">
@@ -267,10 +267,10 @@ export default function Blog() {
       <section className="py-20 lg:py-24 bg-[#1A1B29] border-b border-gray-700">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-6">
               Mantente Informado

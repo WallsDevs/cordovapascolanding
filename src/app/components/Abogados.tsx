@@ -277,10 +277,10 @@ function AbogadoProfile() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Educación */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <GraduationCap className="w-6 h-6 text-[#B32017]" />
@@ -300,10 +300,10 @@ function AbogadoProfile() {
 
             {/* Áreas de Práctica */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <Briefcase className="w-6 h-6 text-[#B32017]" />
@@ -325,10 +325,10 @@ function AbogadoProfile() {
 
             {/* Industrias */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <Calendar className="w-6 h-6 text-[#B32017]" />
@@ -351,10 +351,10 @@ function AbogadoProfile() {
 
           {/* Logros */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-16"
           >
             <h3 className="font-display text-3xl font-bold text-[#1A1B29] mb-8">
@@ -372,10 +372,10 @@ function AbogadoProfile() {
 
           {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16 text-center"
           >
             <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-gray-200">
@@ -589,8 +589,8 @@ export default function Abogados() {
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-wrap justify-center items-center gap-8 lg:gap-16"
@@ -627,8 +627,8 @@ export default function Abogados() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {filteredMembers.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
               className="text-center py-16"
             >
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">

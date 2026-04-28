@@ -33,9 +33,9 @@ export function Contacto() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
               Contacto
@@ -53,10 +53,10 @@ export function Contacto() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:col-span-1"
             >
               <div>
@@ -121,10 +121,10 @@ export function Contacto() {
 
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="lg:col-span-2"
             >
               <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10 hover:shadow-lg hover:border-[#B32017]/20 transition-all">

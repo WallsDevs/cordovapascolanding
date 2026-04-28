@@ -174,9 +174,9 @@ export function Nosotros() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
               Nuestro Equipo
@@ -201,9 +201,9 @@ export function Nosotros() {
                 {teamMembers.map((member, index) => (
                   <div key={member.name} className="w-full flex-shrink-0 px-4">
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5 }}
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
                       className="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden"
                     >
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -333,10 +333,10 @@ export function Nosotros() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-8">
                 Nuestra Misión
@@ -368,10 +368,10 @@ export function Nosotros() {
       <section className="py-20 lg:py-24 bg-[#1A1B29] text-white border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -409,10 +409,10 @@ export function Nosotros() {
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 text-center hover:bg-white/20 hover:border-white/40 transition-all"
               >
                 <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mx-auto mb-6">
@@ -437,10 +437,10 @@ export function Nosotros() {
       <section className="py-20 lg:py-24 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white p-10 lg:p-12 border-l-4 border-[#B32017] shadow-lg"
           >
             <div className="flex items-center gap-3 mb-6">

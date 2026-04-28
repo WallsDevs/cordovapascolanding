@@ -285,8 +285,8 @@ export function Home() {
 
             {/* Sectors Pills - Responsive */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
               className="flex flex-wrap justify-center gap-1.5 px-4"
             >
@@ -485,10 +485,10 @@ export function Home() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             className="text-center mt-12"
           >
             <Link
@@ -565,10 +565,10 @@ export function Home() {
       <section className="py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4">
@@ -611,10 +611,10 @@ export function Home() {
             ].map((post, index) => (
               <motion.article
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all"
               >
                 {/* Image */}
@@ -666,10 +666,10 @@ export function Home() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             className="text-center"
           >
             <Link
@@ -851,10 +851,10 @@ export function Home() {
             {teamMembers.slice(0, 3).map((lawyer, index) => (
               <motion.div
                 key={lawyer.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 3 === 0 ? -100 : index % 3 === 1 ? 100 : 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.8 }}
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all"
               >
                 <div className="flex items-start p-4">
@@ -899,10 +899,10 @@ export function Home() {
 
           {/* View All Button */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center"
           >
             <Link
@@ -923,10 +923,10 @@ export function Home() {
       <section className="py-20 lg:py-24 bg-[#1A1B29] border-b border-gray-700">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Necesita Asesoría Especializada?
