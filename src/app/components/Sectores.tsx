@@ -75,18 +75,23 @@ export function Sectores() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6">
               Sectores Especializados
             </h1>
 
-            <p className="font-sans text-xl text-gray-300 max-w-3xl mx-auto font-normal">
+            <motion.p
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="font-sans text-xl text-gray-300 max-w-3xl mx-auto font-normal"
+            >
               Conocimiento profundo de las industrias más reguladas y técnicamente complejas,
               respaldado por ingeniería especializada.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -94,23 +99,28 @@ export function Sectores() {
       {/* Intro Section */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.h2
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-6"
           >
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-6">
-              La Diferencia Multidisciplinaria
-            </h2>
+            La Diferencia Multidisciplinaria
+          </motion.h2>
 
-            <p className="font-sans text-lg text-[#2D2D3D] leading-relaxed font-normal">
-              En alianza con <span className="font-semibold text-[#1A1B29]">Consultus Group</span>, contamos
-              con ingenieros especializados que comprenden la complejidad técnica de cada sector. Esta sinergia
-              nos permite ofrecer asesoría legal fundamentada en la realidad operativa y regulatoria de
-              industrias altamente especializadas.
-            </p>
-          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-sans text-lg text-[#2D2D3D] leading-relaxed font-normal"
+          >
+            En alianza con <span className="font-semibold text-[#1A1B29]">Consultus Group</span>, contamos
+            con ingenieros especializados que comprenden la complejidad técnica de cada sector. Esta sinergia
+            nos permite ofrecer asesoría legal fundamentada en la realidad operativa y regulatoria de
+            industrias altamente especializadas.
+          </motion.p>
         </div>
       </section>
 
@@ -121,10 +131,10 @@ export function Sectores() {
             {sectors.map((sector, index) => (
               <motion.div
                 key={sector.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
               >
                 {/* Image */}

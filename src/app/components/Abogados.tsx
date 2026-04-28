@@ -447,25 +447,30 @@ export default function Abogados() {
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1574469373613-c3672c38bfeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
             alt="Equipo Legal"
-            className="w-full h-full object-cover opacity-15"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
+          <div className="absolute inset-0 bg-[#1A1B29]/80" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <motion.h1
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-display text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            <h1 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
-              Abogados
-            </h1>
-            <p className="font-sans text-lg text-gray-300 max-w-3xl mx-auto font-normal">
-              Encuentre al profesional ideal para sus necesidades legales. Nuestro equipo combina 
-              experiencia técnica con visión estratégica para ofrecer soluciones de excelencia.
-            </p>
-          </motion.div>
+            Nuestro Equipo Legal
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-sans text-xl text-gray-300 max-w-3xl mx-auto font-normal"
+          >
+            Profesionales altamente especializados con experiencia comprobada en las industrias
+            más complejas y reguladas del mercado.
+          </motion.p>
         </div>
       </section>
 
@@ -473,18 +478,24 @@ export default function Abogados() {
       <section className="py-20 bg-[#F8F9FA]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200"
           >
-            <div className="flex items-center gap-3 mb-8">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex items-center gap-3 mb-8"
+            >
               <Filter className="w-6 h-6 text-[#B32017]" />
               <h2 className="font-display text-2xl font-bold text-[#1A1B29]">
                 Buscar Abogados
               </h2>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* Search Input */}
@@ -578,10 +589,10 @@ export default function Abogados() {
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-wrap justify-center items-center gap-8 lg:gap-16"
           >
             {[
@@ -589,7 +600,14 @@ export default function Abogados() {
               { number: stats.consejeros, label: 'Consejeros' },
               { number: stats.asociados, label: 'Asociados' },
             ].map((stat, index) => (
-              <div key={stat.label} className="flex items-center gap-3">
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                className="flex items-center gap-3"
+              >
                 <div className="w-12 h-12 bg-[#B32017] rounded-full flex items-center justify-center">
                   <span className="font-display text-lg font-bold text-white">
                     {stat.number}
@@ -598,7 +616,7 @@ export default function Abogados() {
                 <span className="font-sans text-sm text-gray-600 uppercase tracking-wider font-medium">
                   {stat.label}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -632,10 +650,10 @@ export default function Abogados() {
                   className="block"
                 >
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: index % 3 === 0 ? -100 : index % 3 === 1 ? 0 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                    transition={{ delay: index * 0.15, duration: 0.8 }}
                     className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all cursor-pointer"
                   >
                     {/* Image */}

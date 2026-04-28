@@ -248,8 +248,8 @@ export function Home() {
                 Córdova & Pasco
               </motion.h1>
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               >
@@ -259,8 +259,8 @@ export function Home() {
 
             {/* Tagline */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mb-3 px-4"
             >
@@ -274,8 +274,8 @@ export function Home() {
 
             {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="font-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-3 max-w-3xl mx-auto font-light leading-snug px-4"
             >
