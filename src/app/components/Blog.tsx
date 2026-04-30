@@ -84,13 +84,25 @@ export default function Blog() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-24">
         <div className="absolute inset-0">
-          <ImageWithFallback
-            src="/blog.png"
-            alt="Blog Legal"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 70%' }}
+          <motion.div
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <ImageWithFallback
+              src="/blog.png"
+              alt="Blog Legal"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'center 70%' }}
+            />
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
