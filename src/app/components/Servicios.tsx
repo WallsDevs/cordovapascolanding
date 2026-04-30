@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Scale, Shield, FileText, Users, Gavel, Briefcase, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router';
 import { useState } from 'react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const services = [
   {
@@ -185,7 +186,12 @@ export default function Servicios() {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-[#1A1B29]">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
+          <ImageWithFallback
+            src="/servicios.png"
+            alt="Servicios Legales"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">

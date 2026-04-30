@@ -17,6 +17,7 @@ export const router = createBrowserRouter([
       { path: "nosotros", Component: Nosotros },
       { path: "servicios", Component: Servicios },
       { path: "sectores", Component: Sectores },
+      { path: "sectores/:sectorSlug", Component: Sectores },
       { path: "abogados", Component: Abogados },
       { path: "abogados/:id", Component: Abogados },
       { path: "blog", Component: Blog },

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Scale, FileText, Users, Gavel, Shield, Briefcase, ArrowRight, Search, Filter } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState, useEffect } from 'react';
+import { AbogadosSearch } from './AbogadosSearch';
 
 // Importar datos de abogados desde el componente Abogados
 const teamMembers = [
@@ -10,7 +11,7 @@ const teamMembers = [
     id: 1,
     name: 'Omar E. Córdova Paredes',
     role: 'Socio Director',
-    image: '/assets/Omar.jpeg',
+    image: '/Omar.png',
     experience: '12+ años de experiencia',
     practiceAreas: ['Derecho Administrativo', 'Energía', 'Control Gubernamental'],
   },
@@ -18,7 +19,7 @@ const teamMembers = [
     id: 2,
     name: 'Jorge Pasco',
     role: 'Socio',
-    image: '/assets/Jorge Pasco.jpeg',
+    image: '/Jorge Pasco.jpeg',
     experience: '10+ años de experiencia',
     practiceAreas: ['Derecho Administrativo', 'Defensa de Funcionarios', 'Gestión Contractual'],
   },
@@ -26,7 +27,7 @@ const teamMembers = [
     id: 3,
     name: 'Alejandro Castillo',
     role: 'Socio',
-    image: '/assets/Alejandro Castillo.jpeg',
+    image: '/Alejandro Castillo.jpeg',
     experience: '8+ años de experiencia en Arbitraje',
     practiceAreas: ['Arbitraje', 'Contratos', 'Resolución de Controversias'],
   },
@@ -34,7 +35,7 @@ const teamMembers = [
     id: 4,
     name: 'Diego Larico',
     role: 'Asociado Senior',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
+    image: '/Diego Larico.jpeg',
     experience: '7+ años de experiencia en Derecho Corporativo',
     practiceAreas: ['Derecho Corporativo', 'M&A', 'Due Diligence'],
   },
@@ -147,9 +148,9 @@ const differentiators = [
 ];
 
 const heroImages = [
+  '/fondosocios.png',
   'https://images.unsplash.com/photo-1686676104932-3d7b6bbaef52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
   'https://images.unsplash.com/photo-1574469373613-c3672c38bfeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
-  'https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
   'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
 ];
 
@@ -187,14 +188,9 @@ export function Home() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1A1B29]/90 via-[#1A1B29]/85 to-[#1A1B29]/80" />
+          {/* Subtle Overlay for Text Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
-          {/* Additional Pattern Overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: 'linear-gradient(#B32017 1px, transparent 1px), linear-gradient(90deg, #B32017 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }} />
         </div>
 
         {/* Decorative Elements - Hidden on small screens */}
@@ -231,7 +227,7 @@ export function Home() {
               className="mb-4 flex justify-center"
             >
               <img
-                src="/assets/logo.png"
+                src="/logo.png"
                 alt="Córdova & Pasco Logo"
                 className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28"
               />
@@ -421,8 +417,13 @@ export function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 lg:py-24 bg-[#F4F4F4]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-[#1A1B29] to-[#2D2D3D] relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'linear-gradient(#B32017 1px, transparent 1px), linear-gradient(90deg, #B32017 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -435,7 +436,7 @@ export function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-display text-4xl lg:text-5xl font-bold text-[#1A1B29] mb-4"
+              className="font-display text-4xl lg:text-5xl font-bold text-white mb-4"
             >
               Nuestros Servicios
             </motion.h2>
@@ -444,10 +445,11 @@ export function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="font-sans text-lg text-[#2D2D3D] max-w-3xl mx-auto font-normal"
+              className="font-sans text-lg text-gray-300 max-w-3xl mx-auto font-normal"
             >
               Portafolio integral de seis prácticas legales especializadas, articuladas bajo una
               gobernanza estratégica única.
+              Soluciones jurídicas integrales para el sector público y privado.
             </motion.p>
           </motion.div>
 
@@ -459,7 +461,7 @@ export function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.8 }}
-                className="bg-gray-50 border border-gray-200 p-8 hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+                className="bg-white/95 backdrop-blur-sm border border-white/20 p-8 hover:shadow-xl hover:bg-white transition-all"
               >
                 <div className="w-14 h-14 bg-[#B32017] flex items-center justify-center mb-6">
                   <service.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
@@ -506,7 +508,7 @@ export function Home() {
       <div className="border-y border-gray-200"></div>
 
       {/* Why Choose Us */}
-      <section className="py-20 lg:py-24 bg-[#F4F4F4]">
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, x: 100 }}
@@ -687,7 +689,7 @@ export function Home() {
       <div className="border-y border-gray-200"></div>
 
       {/* Abogados Search Section */}
-      <section className="py-20 lg:py-24 bg-[#F8F9FA]">
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -717,124 +719,20 @@ export function Home() {
           </motion.div>
 
           {/* Search Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200 mb-16"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <Filter className="w-6 h-6 text-[#B32017]" />
-              <h2 className="font-display text-2xl font-bold text-[#1A1B29]">
-                Buscar Abogados
-              </h2>
-            </div>
-
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                const searchTerm = e.target.search.value;
-                // Redirigir a la página de abogados con el término de búsqueda
-                window.location.href = `/abogados?search=${encodeURIComponent(searchTerm)}`;
-              }}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                {/* Search Input */}
-                <div className="lg:col-span-1">
-                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
-                    Abogados
-                  </label>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="search"
-                      placeholder="Nombre o cargo..."
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
-                    />
-                  </div>
-                </div>
-
-                {/* Practice Areas */}
-                <div>
-                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
-                    Áreas de Práctica
-                  </label>
-                  <select
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
-                  >
-                    <option>Todas</option>
-                    <option>Derecho Administrativo</option>
-                    <option>Arbitraje</option>
-                    <option>Contratos</option>
-                    <option>Derecho Corporativo</option>
-                    <option>Derecho Laboral</option>
-                    <option>Energía</option>
-                    <option>Control Gubernamental</option>
-                    <option>Defensa de Funcionarios</option>
-                    <option>Gestión Contractual</option>
-                    <option>Resolución de Controversias</option>
-                    <option>M&A</option>
-                    <option>Due Diligence</option>
-                    <option>Relaciones Laborales</option>
-                    <option>Compliance Laboral</option>
-                  </select>
-                </div>
-
-                {/* Industries */}
-                <div>
-                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
-                    Industrias
-                  </label>
-                  <select
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
-                  >
-                    <option>Todas</option>
-                    <option>Energía</option>
-                    <option>Oil & Gas</option>
-                    <option>Sector Público</option>
-                    <option>Infraestructura</option>
-                    <option>APPs</option>
-                    <option>Construcción</option>
-                    <option>Financiero</option>
-                    <option>Corporativo</option>
-                    <option>Startups</option>
-                    <option>Retail</option>
-                    <option>Manufactura</option>
-                    <option>Servicios</option>
-                  </select>
-                </div>
-
-                {/* Category */}
-                <div>
-                  <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
-                    Categoría
-                  </label>
-                  <select
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
-                  >
-                    <option>Todos</option>
-                    <option>Socios</option>
-                    <option>Asociados</option>
-                    <option>Asociadas</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="mt-6 flex justify-between items-center">
-                <p className="font-sans text-sm text-gray-600">
-                  Presione Buscar para ver resultados
-                </p>
-                <button
-                  type="submit"
-                  className="font-sans text-sm text-[#B32017] hover:text-[#8B1810] transition-colors"
-                >
-                  Limpiar filtros
-                </button>
-              </div>
-            </form>
-          </motion.div>
+          <AbogadosSearch 
+            onSearch={(searchTerm, practiceArea, industry, category) => {
+              // Construir URL con parámetros de búsqueda
+              const params = new URLSearchParams();
+              if (searchTerm) params.append('search', searchTerm);
+              if (practiceArea !== 'Todas') params.append('practiceArea', practiceArea);
+              if (industry !== 'Todas') params.append('industry', industry);
+              if (category !== 'Todos') params.append('category', category);
+              
+              const url = `/abogados${params.toString() ? '?' + params.toString() : ''}`;
+              window.location.href = url;
+            }}
+            className="mb-16"
+          />
 
           {/* Featured Lawyers Preview */}
           <div className="text-center mb-8">
@@ -855,7 +753,7 @@ export function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.8 }}
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all"
+                className="bg-[#1A1B29]/95 backdrop-blur-sm border border-white/20 rounded-xl overflow-hidden hover:shadow-xl hover:bg-[#1A1B29] transition-all"
               >
                 <div className="flex items-start p-4">
                   {/* Small Image */}
@@ -874,10 +772,10 @@ export function Home() {
                         {lawyer.role}
                       </span>
                     </div>
-                    <h4 className="font-display text-lg font-bold text-[#1A1B29] mb-1">
+                    <h4 className="font-display text-lg font-bold text-white mb-1">
                       {lawyer.name}
                     </h4>
-                    <p className="font-sans text-xs text-gray-600 mb-2">
+                    <p className="font-sans text-xs text-gray-300 mb-2">
                       {lawyer.experience}
                     </p>
                     {/* Practice Areas */}
@@ -885,7 +783,7 @@ export function Home() {
                       {lawyer.practiceAreas.slice(0, 2).map((area, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-[#B32017]/10 text-[#B32017] font-sans text-xs rounded"
+                          className="px-2 py-1 bg-[#B32017]/20 text-white font-sans text-xs rounded"
                         >
                           {area}
                         </span>
@@ -907,7 +805,7 @@ export function Home() {
           >
             <Link
               to="/abogados"
-              className="inline-flex items-center justify-center gap-2 px-12 py-4 bg-white border-2 border-[#B32017] text-[#B32017] font-sans font-semibold hover:bg-[#B32017] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-12 py-4 bg-[#1A1B29] border-2 border-white/20 text-white font-sans font-semibold hover:bg-white hover:text-[#1A1B29] transition-colors"
             >
               Ver Todos los Abogados
               <ArrowRight className="w-5 h-5" />
@@ -916,43 +814,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Separador */}
-      <div className="border-y border-gray-200"></div>
-
-      {/* CTA Section */}
-      <section className="py-20 lg:py-24 bg-[#1A1B29] border-b border-gray-700">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
-              ¿Necesita Asesoría Especializada?
-            </h2>
-            <p className="font-sans text-xl text-gray-300 mb-10 font-light">
-              Nuestro equipo está preparado para analizar su caso y ofrecerle soluciones
-              jurídicas de excelencia.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contacto"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#B32017] text-white font-sans font-semibold hover:bg-[#8B1810] transition-colors"
-              >
-                Solicitar Consulta
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href="mailto:contacto@cp-asociados.pe"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-transparent border-2 border-white text-white font-sans font-semibold hover:bg-white hover:text-[#1A1B29] transition-colors"
-              >
-                Enviar Email
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+          </div>
   );
 }

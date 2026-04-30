@@ -1,9 +1,20 @@
 import { motion } from 'motion/react';
-import { Zap, Droplet, Wheat, Building } from 'lucide-react';
+import { Zap, Droplet, Wheat, Building, X, ArrowLeft } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
+import { useState } from 'react';
 
-const sectors = [
+// Definir tipos
+interface Sector {
+  icon: any;
+  title: string;
+  subtitle: string;
+  description: string;
+  services: string[];
+  image: string;
+}
+
+const sectors: Sector[] = [
   {
     icon: Zap,
     title: 'Energía',
@@ -32,7 +43,7 @@ const sectors = [
       'Arbitrajes en proyectos petroleros',
       'Gestión de pasivos ambientales',
     ],
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800',
+    image: '/oilgas.jpg',
   },
   {
     icon: Wheat,
@@ -66,12 +77,174 @@ const sectors = [
   },
 ];
 
+// Componente para vista individual del sector
+function SectorDetail() {
+  const { sectorSlug } = useParams();
+  const sector = sectors.find(s => 
+    s.title.toLowerCase().replace(/ /g, '-').replace(/&/g, '-and-') === decodeURIComponent(sectorSlug || '')
+  );
+
+  if (!sector) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="text-center">
+          <h1 className="font-display text-3xl font-bold text-[#1A1B29] mb-4">
+            Sector no encontrado
+          </h1>
+          <p className="font-sans text-gray-600 mb-8">
+            El sector que buscas no existe o ha sido movido.
+          </p>
+          <Link
+            to="/sectores"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#B32017] text-white font-sans font-semibold hover:bg-[#8B1810] transition-colors rounded-xl"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Volver a Sectores
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px]">
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src={sector.image}
+            alt={sector.title}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 70%' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center px-6 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Link
+                to="/sectores"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Volver a Sectores
+              </Link>
+              
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                {sector.title}
+              </h1>
+              <p className="font-sans text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+                {sector.subtitle}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-20 lg:py-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-6">
+              Descripción del Sector
+            </h2>
+            <p className="font-sans text-lg text-gray-600 leading-relaxed">
+              {sector.description}
+            </p>
+          </motion.div>
+
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-16"
+          >
+            <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A1B29] mb-8">
+              Servicios Especializados
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {sector.services.map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
+                  className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  <div className="w-3 h-3 bg-[#B32017] rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="font-sans text-gray-700 font-medium">{service}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center"
+          >
+            <div className="bg-gradient-to-r from-[#B32017] to-[#8B1810] rounded-3xl p-8 lg:p-12 text-white">
+              <h3 className="font-display text-2xl lg:text-3xl font-bold mb-4">
+                ¿Necesita asesoría en {sector.title}?
+              </h3>
+              <p className="font-sans text-lg mb-8 text-white/90">
+                Nuestro equipo de expertos está listo para ayudarle con sus proyectos y necesidades legales en este sector.
+              </p>
+              <Link
+                to="/contacto"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#B32017] font-sans font-semibold hover:bg-gray-100 transition-colors rounded-xl"
+              >
+                Contactar Expertos
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export function Sectores() {
+  const { sectorSlug } = useParams();
+
+  // Si hay un slug, mostrar vista individual
+  if (sectorSlug) {
+    return <SectorDetail />;
+  }
+
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-[#1A1B29]">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src="/sectores.png"
+            alt="Sectores Industriales"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
@@ -256,10 +429,10 @@ export function Sectores() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.7, duration: 0.8 }}
-                        className="mb-8"
+                        className="mb-8 mt-8"
                       >
                         <Link
-                          to={`/sectores#${sector.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                          to={`/sectores/${encodeURIComponent(sector.title.toLowerCase().replace(/ /g, '-').replace(/&/g, '-and-'))}`}
                           className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#B32017] to-[#8B1810] text-white font-sans font-semibold hover:from-[#8B1810] hover:to-[#B32017] transition-all transform hover:scale-105 rounded-2xl shadow-lg hover:shadow-xl"
                         >
                           Explorar Sector

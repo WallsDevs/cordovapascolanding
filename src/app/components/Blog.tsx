@@ -82,8 +82,17 @@ export default function Blog() {
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <section className="py-20 lg:py-24 bg-gradient-to-br from-[#1A1B29] to-[#2D2D3D]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      <section className="relative py-20 lg:py-24">
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src="/blog.png"
+            alt="Blog Legal"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 70%' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}

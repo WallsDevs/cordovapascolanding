@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Send, Shield } from 'lucide-react';
 import { useState } from 'react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Contacto() {
   const [formData, setFormData] = useState({
@@ -30,7 +31,14 @@ export function Contacto() {
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] bg-[#1A1B29] flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+            alt="Contacto Legal"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, x: -100 }}

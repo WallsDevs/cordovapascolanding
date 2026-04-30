@@ -35,7 +35,7 @@ const teamMembers = [
   {
     name: 'Omar E. Córdova Paredes',
     role: 'Socio Director',
-    image: '/assets/Omar.jpeg',
+    image: '/Omar.png',
     experience: '12+ años de experiencia',
     education: [
       'Maestría en Relaciones Industriales',
@@ -51,7 +51,7 @@ const teamMembers = [
   {
     name: 'Jorge Pasco',
     role: 'Socio',
-    image: '/assets/Jorge Pasco.jpeg',
+    image: '/Jorge Pasco.jpeg',
     experience: '10+ años de experiencia',
     education: [
       'Abogado por la Pontificia Universidad Católica del Perú',
@@ -67,7 +67,7 @@ const teamMembers = [
   {
     name: 'Alejandro Castillo',
     role: 'Socio',
-    image: '/assets/Alejandro Castillo.jpeg',
+    image: '/Alejandro Castillo.jpeg',
     experience: '8+ años de experiencia en Arbitraje',
     education: [
       'Abogado por la Universidad Nacional Mayor de San Marcos',
@@ -84,7 +84,7 @@ const teamMembers = [
   {
     name: 'Diego Larico',
     role: 'Asociado Senior',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
+    image: '/Diego Larico.jpeg',
     experience: '7+ años de experiencia en Derecho Corporativo',
     education: [
       'Abogado por la Universidad del Pacífico',
@@ -162,14 +162,15 @@ export function Nosotros() {
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-[#1A1B29]">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1574469373613-c3672c38bfeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+            src="/banner_equipo.png"
             alt="Modern Office"
-            className="w-full h-full object-cover opacity-15"
+            className="w-full h-full object-cover" 
+            style={{ objectPosition: 'center 70%' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1B29]/95 to-[#1A1B29]/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">

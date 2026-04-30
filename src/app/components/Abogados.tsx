@@ -10,7 +10,7 @@ const teamMembers = [
     name: 'Omar E. Córdova Paredes',
     role: 'Socio Director',
     category: 'socio',
-    image: '/assets/Omar.jpeg',
+    image: '/Omar.png',
     experience: '12+ años de experiencia',
     email: 'ocordova@cp-asociados.pe',
     phone: '+51 1 234 5678',
@@ -36,7 +36,7 @@ const teamMembers = [
     name: 'Jorge Pasco',
     role: 'Socio',
     category: 'socio',
-    image: '/assets/Jorge Pasco.jpeg',
+    image: '/Jorge Pasco.jpeg',
     experience: '10+ años de experiencia',
     email: 'jpasco@cp-asociados.pe',
     phone: '+51 1 234 5679',
@@ -61,7 +61,7 @@ const teamMembers = [
     name: 'Alejandro Castillo',
     role: 'Socio',
     category: 'socio',
-    image: '/assets/Alejandro Castillo.jpeg',
+    image: '/Alejandro Castillo.jpeg',
     experience: '8+ años de experiencia en Arbitraje',
     email: 'acastillo@cp-asociados.pe',
     phone: '+51 1 234 5680',
@@ -86,7 +86,7 @@ const teamMembers = [
     name: 'Diego Larico',
     role: 'Asociado Senior',
     category: 'asociado',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
+    image: '/Diego Larico.jpeg',
     experience: '7+ años de experiencia en Derecho Corporativo',
     email: 'dlarico@cp-asociados.pe',
     phone: '+51 1 234 5681',
@@ -445,11 +445,12 @@ export default function Abogados() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-[#1A1B29]">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1574469373613-c3672c38bfeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+            src="/nuestro_equipo.png"
             alt="Equipo Legal"
             className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 70%' }}
           />
-          <div className="absolute inset-0 bg-[#1A1B29]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
@@ -482,7 +483,7 @@ export default function Abogados() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-200"
+            className="bg-[#1A1B29] p-8 lg:p-12 rounded-2xl shadow-lg border border-[#1A1B29]/20"
           >
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -491,8 +492,8 @@ export default function Abogados() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex items-center gap-3 mb-8"
             >
-              <Filter className="w-6 h-6 text-[#B32017]" />
-              <h2 className="font-display text-2xl font-bold text-[#1A1B29]">
+              <Filter className="w-6 h-6 text-white" />
+              <h2 className="font-display text-2xl font-bold text-white">
                 Buscar Abogados
               </h2>
             </motion.div>
@@ -500,7 +501,7 @@ export default function Abogados() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* Search Input */}
               <div className="lg:col-span-1">
-                <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                <label className="block font-sans text-sm font-medium text-white mb-2">
                   Abogados
                 </label>
                 <div className="relative">
@@ -510,20 +511,20 @@ export default function Abogados() {
                     placeholder="Nombre o cargo..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-600 bg-white/10 text-white placeholder-gray-300 rounded-lg font-sans focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
                   />
                 </div>
               </div>
 
               {/* Practice Areas */}
               <div>
-                <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                <label className="block font-sans text-sm font-medium text-white mb-2">
                   Áreas de Práctica
                 </label>
                 <select
                   value={selectedPracticeArea}
                   onChange={(e) => setSelectedPracticeArea(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  className="w-full px-4 py-3 border border-gray-600 bg-white/10 text-white rounded-lg font-sans focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
                 >
                   {practiceAreas.map(area => (
                     <option key={area} value={area}>{area}</option>
@@ -533,13 +534,13 @@ export default function Abogados() {
 
               {/* Industries */}
               <div>
-                <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                <label className="block font-sans text-sm font-medium text-white mb-2">
                   Industrias
                 </label>
                 <select
                   value={selectedIndustry}
                   onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  className="w-full px-4 py-3 border border-gray-600 bg-white/10 text-white rounded-lg font-sans focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
                 >
                   {industries.map(industry => (
                     <option key={industry} value={industry}>{industry}</option>
@@ -549,13 +550,13 @@ export default function Abogados() {
 
               {/* Category */}
               <div>
-                <label className="block font-sans text-sm font-medium text-[#1A1B29] mb-2">
+                <label className="block font-sans text-sm font-medium text-white mb-2">
                   Categoría
                 </label>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:border-[#B32017] focus:ring-1 focus:ring-[#B32017]"
+                  className="w-full px-4 py-3 border border-gray-600 bg-white/10 text-white rounded-lg font-sans focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
                 >
                   <option value="Todos">Todos</option>
                   <option value="socio">Socios</option>
@@ -654,7 +655,7 @@ export default function Abogados() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.15, duration: 0.8 }}
-                    className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#B32017]/20 transition-all cursor-pointer"
+                    className="bg-[#1A1B29]/95 backdrop-blur-sm border border-white/20 rounded-xl overflow-hidden hover:shadow-xl hover:bg-[#1A1B29] transition-all cursor-pointer"
                   >
                     {/* Image */}
                     <div className="aspect-[4/5] overflow-hidden">
@@ -675,12 +676,12 @@ export default function Abogados() {
                       </div>
 
                       {/* Name */}
-                      <h3 className="font-display text-xl font-bold text-[#1A1B29] mb-2">
+                      <h3 className="font-display text-xl font-bold text-white mb-2">
                         {member.name}
                       </h3>
 
                       {/* Experience */}
-                      <p className="font-sans text-sm text-gray-600 mb-4">
+                      <p className="font-sans text-sm text-gray-300 mb-4">
                         {member.experience}
                       </p>
 
@@ -688,21 +689,18 @@ export default function Abogados() {
                       <div className="mb-4">
                         <div className="flex items-center gap-2 mb-2">
                           <Briefcase className="w-4 h-4 text-[#B32017]" />
-                          <h4 className="font-sans text-xs font-bold text-[#1A1B29] uppercase tracking-wider">
+                          <h4 className="font-sans text-xs font-bold text-white uppercase tracking-wider">
                             Áreas de Práctica
                           </h4>
                         </div>
                         <div className="flex flex-wrap gap-1">
                           {member.practiceAreas.slice(0, 2).map((area, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 bg-[#B32017]/10 text-[#B32017] font-sans text-xs rounded"
-                            >
+                            <span key={idx} className="px-2 py-1 bg-[#B32017]/20 text-white font-sans text-xs rounded">
                               {area}
                             </span>
                           ))}
                           {member.practiceAreas.length > 2 && (
-                            <span className="px-2 py-1 bg-gray-100 text-gray-600 font-sans text-xs rounded">
+                            <span className="px-2 py-1 bg-white/20 text-white font-sans text-xs rounded">
                               +{member.practiceAreas.length - 2}
                             </span>
                           )}
@@ -713,21 +711,18 @@ export default function Abogados() {
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2">
                           <GraduationCap className="w-4 h-4 text-[#B32017]" />
-                          <h4 className="font-sans text-xs font-bold text-[#1A1B29] uppercase tracking-wider">
+                          <h4 className="font-sans text-xs font-bold text-white uppercase tracking-wider">
                             Industrias
                           </h4>
                         </div>
                         <div className="flex flex-wrap gap-1">
                           {member.industries.slice(0, 2).map((industry, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 bg-gray-100 text-gray-700 font-sans text-xs rounded"
-                            >
+                            <span key={idx} className="px-2 py-1 bg-white/20 text-white font-sans text-xs rounded">
                               {industry}
                             </span>
                           ))}
                           {member.industries.length > 2 && (
-                            <span className="px-2 py-1 bg-gray-100 text-gray-600 font-sans text-xs rounded">
+                            <span className="px-2 py-1 bg-white/20 text-white font-sans text-xs rounded">
                               +{member.industries.length - 2}
                             </span>
                           )}
